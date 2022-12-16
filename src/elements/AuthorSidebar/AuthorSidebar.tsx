@@ -19,4 +19,5 @@ const AuthorSidebar = ({ children }: propAuth) => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default AuthorSidebar

@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
@@ -91,7 +95,6 @@ export const ModalWindow = ({
                         },
                       })}
                       className="input input_email"
-                      id="auth_email"
                       type="email"
                     />
                     {errors?.email && (
@@ -109,7 +112,6 @@ export const ModalWindow = ({
                         required: true,
                       })}
                       className="input input_password"
-                      id="auth_password"
                       type={type}
                     />
                     {errors?.password && <i className="error_icon_password fa-solid fa-triangle-exclamation"></i>}
@@ -162,4 +164,5 @@ export const ModalWindow = ({
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default ModalWindow

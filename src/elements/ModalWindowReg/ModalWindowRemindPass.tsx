@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
@@ -57,7 +60,6 @@ export const ModalWindowRemindPass = ({ openRemindePass, setOpenRemindePass, set
                         },
                       })}
                       className="input input_email"
-                      id="auth_email"
                       type="email"
                     />
                     {errors?.email && (

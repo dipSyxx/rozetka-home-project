@@ -44,4 +44,5 @@ export const Burger = () => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default Burger

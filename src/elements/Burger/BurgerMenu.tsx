@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-html-link-for-pages */
+/* eslint-disable react/forbid-component-props */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { faCartShopping, faCircleQuestion, faPaperPlane, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined'
@@ -28,13 +32,8 @@ type BurgerProp = {
 const BurgerMenu = ({
   openBurgerMenu,
   setOpenBurgreMenu,
-  open,
   setOpen,
-  openRemindePass,
-  setOpenRemindePass,
-  openRegestration,
   setOpenRegestration,
-  openWindowCity,
   setOpenWindowCity,
 }: BurgerProp) => {
   return (
@@ -217,4 +216,5 @@ const BurgerMenu = ({
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default BurgerMenu

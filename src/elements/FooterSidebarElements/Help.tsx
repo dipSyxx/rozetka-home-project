@@ -1,4 +1,5 @@
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
 const Help = () => {
   return (
@@ -8,23 +9,24 @@ const Help = () => {
       </div>
       <ul className="footer_sidebar_list">
         <li>
-          <a href="/">Доставка та оплата</a>
+          <Link href="/">Доставка та оплата</Link>
         </li>
         <li>
-          <a href="/">Кредит</a>
+          <Link href="/">Кредит</Link>
         </li>
         <li>
-          <a href="/">Гарантія</a>
+          <Link href="/">Гарантія</Link>
         </li>
         <li>
-          <a href="/">Повернення товару</a>
+          <Link href="/">Повернення товару</Link>
         </li>
         <li>
-          <a href="/">Сервісні центри</a>
+          <Link href="/">Сервісні центри</Link>
         </li>
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Help;
+// eslint-disable-next-line import/no-default-export
+export default Help

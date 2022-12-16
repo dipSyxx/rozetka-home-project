@@ -1,22 +1,20 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react'
 
 type entryProp = {
-  entry: string;
-  isValid: any;
-};
+  entry: string
+  isValid: any
+}
 
 const ButtonModalWindow = ({ entry, isValid }: entryProp) => {
   return (
     <>
-      <button
-        disabled={isValid}
-        type="submit"
-        className="button button_auth_modal"
-      >
+      <button className="button button_auth_modal" disabled={isValid} type="submit">
         {entry}
       </button>
     </>
-  );
-};
+  )
+}
 
-export default ButtonModalWindow;
+// eslint-disable-next-line import/no-default-export
+export default ButtonModalWindow

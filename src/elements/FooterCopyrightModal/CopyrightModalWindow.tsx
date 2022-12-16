@@ -1,36 +1,25 @@
-import React, { ReactNode } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+import React from 'react'
 
 type propCopyrightModalWindow = {
-  text: string;
-  content: string;
-  openCard: any;
-  setOpenCard: any;
-};
+  text: string
+  content: string
+  openCard: any
+  setOpenCard: any
+}
 
-const CopyrightModalWindow = ({
-  text,
-  content,
-  openCard,
-  setOpenCard,
-}: propCopyrightModalWindow) => {
+const CopyrightModalWindow = ({ text, content, openCard, setOpenCard }: propCopyrightModalWindow) => {
   return (
     <>
       <div
+        className={`modal_holder_cards animated_cards ${openCard ? 'show_cards' : ''} `}
         onClick={() => setOpenCard(false)}
-        className={`modal_holder_cards animated_cards ${
-          openCard ? "show_cards" : ""
-        } `}
       >
-        <div
-          className="modal_window_cards"
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className="modal_window_cards" onClick={(e) => e.stopPropagation()}>
           <div className="modal_header_cards">
             <div className="modal_heading_cards">{text}</div>
-            <button
-              onClick={() => setOpenCard(false)}
-              className="modal_close_cards"
-            >
+            <button className="modal_close_cards" onClick={() => setOpenCard(false)}>
               X
             </button>
           </div>
@@ -40,7 +29,8 @@ const CopyrightModalWindow = ({
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default CopyrightModalWindow;
+// eslint-disable-next-line import/no-default-export
+export default CopyrightModalWindow

@@ -1,8 +1,9 @@
-import React from "react";
-import AboutCompany from "./AboutCompany";
-import Help from "./Help";
-import Partners from "./Partners";
-import Servises from "./Servises";
+import React from 'react'
+
+import AboutCompany from './AboutCompany'
+import Help from './Help'
+import Partners from './Partners'
+import Servises from './Servises'
 
 const FooterSidebar = () => {
   return (
@@ -12,7 +13,8 @@ const FooterSidebar = () => {
       <Servises />
       <Partners />
     </div>
-  );
-};
+  )
+}
 
-export default FooterSidebar;
+// eslint-disable-next-line import/no-default-export
+export default FooterSidebar

@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-component-props */
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
@@ -60,4 +61,5 @@ export const HeaderActions = () => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default HeaderActions

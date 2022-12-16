@@ -15,4 +15,5 @@ export const Layout: FC<layoutProps> = ({ children }) => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default Layout

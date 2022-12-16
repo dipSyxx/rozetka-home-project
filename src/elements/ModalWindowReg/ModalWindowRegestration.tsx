@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
@@ -24,7 +28,6 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
     formState: { errors, isValid },
     handleSubmit,
     reset,
-    setValue,
   } = useForm<IFormsValid>({
     mode: 'onBlur',
   })
@@ -76,7 +79,6 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
                         },
                       })}
                       className="input input_email"
-                      id="auth_name"
                       type="text"
                     />
                     {errors?.firstname && (
@@ -98,7 +100,6 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
                         },
                       })}
                       className="input "
-                      id="auth_lastname"
                       type="text"
                     />
                     {errors?.lastname && (
@@ -115,12 +116,12 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
                       {...register('phone', {
                         required: 'Введіть номер мобільного телефону',
                         pattern: {
+                          // eslint-disable-next-line no-useless-escape
                           value: /((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/g,
                           message: 'Введіть коректний номер мобільного телефону',
                         },
                       })}
                       className="input"
-                      id="auth_phone"
                       placeholder="+380"
                       type="phone"
                     />
@@ -143,7 +144,6 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
                         },
                       })}
                       className="input input_email"
-                      id="auth_email"
                       type="email"
                     />
                     {errors?.email && (
@@ -165,7 +165,6 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
                         },
                       })}
                       className="input input_password"
-                      id="auth_password"
                       type={type}
                     />
                     <button className="password_blind" onClick={handleToggle}>
@@ -181,11 +180,11 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
 
                   <div className="form_cation">
                     Реєструючись, ви погоджуєтеся з
-                    <a className="caption_link" href="/">
+                    <a className="caption_link" href="/" target="_blank">
                       умовами положення про обробку і захист персональних даних
                     </a>
                     та
-                    <a className="caption_link" href="/">
+                    <a className="caption_link" href="/" target="_blank">
                       угодою користувача
                     </a>
                   </div>
@@ -216,4 +215,5 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default ModalWindowRegestration

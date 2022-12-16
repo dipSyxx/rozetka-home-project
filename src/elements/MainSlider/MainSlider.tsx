@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-component-props */
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -32,7 +33,14 @@ export const MainSlider = () => {
         {SliderPhotoMassive.map(({ id, picture, pathPicture }: SliderPhotoProp) => (
           <SwiperSlide key={id}>
             <Link href={`${pathPicture}`}>
-              <Image alt="slide" height={400} placeholder="empty" src={`/sliderImg/${picture}.jpg`} width={1200} />
+              <Image
+                alt="slide"
+                height={400}
+                placeholder="empty"
+                priority={true}
+                src={`/sliderImg/${picture}.jpg`}
+                width={1200}
+              />
             </Link>
           </SwiperSlide>
         ))}
@@ -41,4 +49,5 @@ export const MainSlider = () => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default MainSlider

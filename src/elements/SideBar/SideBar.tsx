@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/forbid-component-props */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { faCircleQuestion, faPaperPlane, faShop } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
@@ -106,4 +109,5 @@ export const SideBar = ({ sidebarLinks }: sidebarLinks) => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default SideBar

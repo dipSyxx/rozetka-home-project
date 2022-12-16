@@ -1,12 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
 
 import CopyrightText from './CopyrightText'
 import PaymentMastercard from './PaymentMastercard'
 import PaymentVisa from './PaymentVisa'
 
 const FooterCopyright = () => {
-  const [openCard, setOpenCard] = useState(false)
   return (
     <>
       <div className="copyright_block">
@@ -22,4 +20,5 @@ const FooterCopyright = () => {
   )
 }
 
+// eslint-disable-next-line import/no-default-export
 export default FooterCopyright
