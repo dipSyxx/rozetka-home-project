@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
@@ -8,7 +7,7 @@ import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
 import ButtonModalWindow from './ButtonModalWindow'
 
 type remindePassProp = {
-  openRemindePass: any
+  openRemindePass: boolean
   setOpenRemindePass: any
   setOpen: any
 }
@@ -32,16 +31,27 @@ export const ModalWindowRemindPass = ({ openRemindePass, setOpenRemindePass, set
     reset()
   }
 
+  const handlerStopPropagationWindow = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
+
+  const handlerCloseXWindow = () => {
+    setOpenRemindePass(false)
+  }
+
+  const handlerCloseRemindeWindow = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenRemindePass(false)
+    setOpen(true)
+  }
+
   return (
     <>
-      <div
-        className={`modal_holder animated ${openRemindePass ? 'show' : ''} `}
-        onClick={() => setOpenRemindePass(false)}
-      >
-        <div className="modal_window" onClick={(e) => e.stopPropagation()}>
+      <div className={`modal_holder animated ${openRemindePass ? 'show' : ''} `} onClick={handlerCloseXWindow}>
+        <div className="modal_window" onClick={handlerStopPropagationWindow}>
           <div className="modal_header">
             <div className="modal_heading">Вхід</div>
-            <button className="modal_close" onClick={() => setOpenRemindePass(false)}>
+            <button className="modal_close" onClick={handlerCloseXWindow}>
               X
             </button>
           </div>
@@ -72,14 +82,7 @@ export const ModalWindowRemindPass = ({ openRemindePass, setOpenRemindePass, set
 
                   <div className="form_row button_center">
                     <ButtonModalWindow entry="Отримати тимчасовий пароль" isValid={!isValid} />
-                    <button
-                      className="button button_link_modal"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setOpenRemindePass(false)
-                        setOpen(true)
-                      }}
-                    >
+                    <button className="button button_link_modal" onClick={handlerCloseRemindeWindow}>
                       Я згадав свій пароль
                     </button>
                   </div>

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
@@ -16,11 +15,11 @@ interface IFormsValid {
 }
 
 type OpenProps = {
-  open: any
+  open: boolean
   setOpen: any
-  openRemindePass: any
+  openRemindePass: boolean
   setOpenRemindePass: any
-  openRegestration: any
+  openRegestration: boolean
   setOpenRegestration: any
 }
 
@@ -60,6 +59,29 @@ export const ModalWindow = ({
     reset()
   }
 
+  const handlerCloseModalWindow = () => {
+    setOpen(false)
+  }
+
+  const handlerCloseXModalWindow = () => {
+    setOpen(false)
+  }
+
+  const handlerStopPropagationWindow = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
+
+  const handlerOpenRemindeWindow = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenRemindePass(true)
+    setOpen(false)
+  }
+  const handlerOpenRegestrationWindow = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenRegestration(true)
+    setOpen(false)
+  }
+
   return (
     <>
       <ModalWindowRemindPass
@@ -72,11 +94,11 @@ export const ModalWindow = ({
         setOpen={setOpen}
         setOpenRegestration={setOpenRegestration}
       />
-      <div className={`modal_holder animated ${open ? 'show' : ''} `} onClick={() => setOpen(false)}>
-        <div className="modal_window" onClick={(e) => e.stopPropagation()}>
+      <div className={`modal_holder animated ${open ? 'show' : ''} `} onClick={handlerCloseModalWindow}>
+        <div className="modal_window" onClick={handlerStopPropagationWindow}>
           <div className="modal_header">
             <div className="modal_heading">Вхід</div>
-            <button className="modal_close" onClick={() => setOpen(false)}>
+            <button className="modal_close" onClick={handlerCloseXModalWindow}>
               X
             </button>
           </div>
@@ -126,28 +148,14 @@ export const ModalWindow = ({
                       Запам'ятати мене
                     </label>
 
-                    <button
-                      className="auth_modal_link"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setOpenRemindePass(true)
-                        setOpen(false)
-                      }}
-                    >
+                    <button className="auth_modal_link" onClick={handlerOpenRemindeWindow}>
                       Нагадати пароль
                     </button>
                   </div>
 
                   <div className="form_row button_center">
                     <ButtonModalWindow entry="Увійти" isValid={!isValid} />
-                    <button
-                      className="button button_link_modal"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setOpenRegestration(true)
-                        setOpen(false)
-                      }}
-                    >
+                    <button className="button button_link_modal" onClick={handlerOpenRegestrationWindow}>
                       Зареєструватися
                     </button>
                   </div>

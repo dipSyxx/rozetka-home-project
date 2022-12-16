@@ -3,7 +3,7 @@ import React from 'react'
 
 type entryProp = {
   entry: string
-  isValid: any
+  isValid: boolean
 }
 
 const ButtonModalWindow = ({ entry, isValid }: entryProp) => {

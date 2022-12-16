@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable react/forbid-component-props */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { faCartShopping, faCircleQuestion, faPaperPlane, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined'
@@ -17,32 +15,62 @@ import SocialsMain from 'src/elements/Socials/SocialsMain'
 import { SocialsLinks } from '../../pages/api/data/sidebarCategoiesMassive'
 
 type BurgerProp = {
-  openBurgerMenu: any
-  setOpenBurgreMenu: any
-  open: any
+  openBurgerMenu: boolean
+  setOpenBurgerMenu: any
+  open: boolean
   setOpen: any
-  openRemindePass: any
+  openRemindePass: boolean
   setOpenRemindePass: any
-  openRegestration: any
+  openRegestration: boolean
   setOpenRegestration: any
-  openWindowCity: any
+  openWindowCity: boolean
   setOpenWindowCity: any
 }
 
 const BurgerMenu = ({
   openBurgerMenu,
-  setOpenBurgreMenu,
+  setOpenBurgerMenu,
   setOpen,
   setOpenRegestration,
   setOpenWindowCity,
 }: BurgerProp) => {
+  const handlerCloseBurgerMenu = () => {
+    setOpenBurgerMenu(false)
+  }
+
+  const hendlerStopPropagationMenu = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
+
+  const handlerCloseXBurgerMenu = () => {
+    setOpenBurgerMenu(false)
+  }
+
+  const hendlerOpenModalWindow = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenBurgerMenu(false)
+    setOpen(true)
+  }
+
+  const hendlerOpenRegestrationWindow = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenBurgerMenu(false)
+    setOpenRegestration(true)
+  }
+
+  const hendlerOpenCityWindow = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenWindowCity(true)
+    setOpenBurgerMenu(false)
+  }
+
   return (
     <>
       <div
         className={`burger_holder animated_burger ${openBurgerMenu ? 'show_burger' : ''} `}
-        onClick={() => setOpenBurgreMenu(false)}
+        onClick={handlerCloseBurgerMenu}
       >
-        <div className="burger_window" onClick={(e) => e.stopPropagation()}>
+        <div className="burger_window" onClick={hendlerStopPropagationMenu}>
           <div className="burger_menu_header">
             <Link href="/">
               <Image
@@ -54,7 +82,7 @@ const BurgerMenu = ({
                 width={144}
               />
             </Link>
-            <button className="burger_close" onClick={() => setOpenBurgreMenu(false)}>
+            <button className="burger_close" onClick={handlerCloseXBurgerMenu}>
               X
             </button>
           </div>
@@ -67,24 +95,10 @@ const BurgerMenu = ({
                 </div>
                 <div className="burger_menu_auth_content">
                   <div className="burger_menu_auth_buttons">
-                    <button
-                      className="button auth_button"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setOpenBurgreMenu(false)
-                        setOpen(true)
-                      }}
-                    >
+                    <button className="button auth_button" onClick={hendlerOpenModalWindow}>
                       Вхід
                     </button>
-                    <button
-                      className="button auth_button"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setOpenBurgreMenu(false)
-                        setOpenRegestration(true)
-                      }}
-                    >
+                    <button className="button auth_button" onClick={hendlerOpenRegestrationWindow}>
                       Реєстрація
                     </button>
                   </div>
@@ -122,7 +136,7 @@ const BurgerMenu = ({
                 </a>
               </li>
               <li className="burger_menu_item border_zero">
-                <Link className="burger_menu_button" href="/shopCart/ShopCart" onClick={() => setOpenBurgreMenu(false)}>
+                <Link className="burger_menu_button" href="/shopCart/ShopCart" onClick={handlerCloseBurgerMenu}>
                   <span className="burger_menu_icon_button">
                     <FontAwesomeIcon icon={faCartShopping} />
                   </span>
@@ -137,15 +151,15 @@ const BurgerMenu = ({
                   <div className="burger_lang_block">
                     <ul className="burger_lang_list">
                       <li className="burger_lang_item">
-                        <a className="lang_link" href="/">
+                        <Link className="lang_link" href="/">
                           RU
-                        </a>
+                        </Link>
                       </li>
                       <li className="burger_lang_item lang_space">
-                        <a className="lang_link lang_link_active" href="/">
+                        <Link className="lang_link lang_link_active" href="/">
                           <Image alt="ua" className="lang_icon" height={16} src="/Lang/ua.svg" width={24} />
                           UA
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -153,14 +167,7 @@ const BurgerMenu = ({
                 <div className="burger_menu_switch">
                   <p className="burger_menu_switch_label">Місто</p>
                   <div className="burger_menu_city_toggle">
-                    <button
-                      className="button city_toggle"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setOpenWindowCity(true)
-                        setOpenBurgreMenu(false)
-                      }}
-                    >
+                    <button className="button city_toggle" onClick={hendlerOpenCityWindow}>
                       <span className="city_toggle_text">Умань</span>
                       <i className="city_toggle_arrow fa-solid fa-chevron-down"></i>
                     </button>
@@ -173,35 +180,35 @@ const BurgerMenu = ({
                 <CustomAccordion accordionTitle={'Сервіси'}>
                   <ul className="footer_sidebar_list">
                     <li>
-                      <a href="/">Бонусний рахунок</a>
+                      <Link href="/">Бонусний рахунок</Link>
                     </li>
                     <li>
-                      <a href="/">Rozetka Premium</a>
+                      <Link href="/">Rozetka Premium</Link>
                     </li>
                     <li>
-                      <a href="/">Подарункові сертефікати</a>
+                      <Link href="/">Подарункові сертефікати</Link>
                     </li>
                     <li>
-                      <a href="/">Rozetka обмін</a>
+                      <Link href="/">Rozetka обмін</Link>
                     </li>
                     <li>
-                      <a href="/">Тури та відпочинок</a>
+                      <Link href="/">Тури та відпочинок</Link>
                     </li>
                   </ul>
                 </CustomAccordion>
                 <CustomAccordion accordionTitle={'Партнерам'}>
                   <ul className="footer_sidebar_list">
                     <li>
-                      <a href="/">Продавати на Розетці</a>
+                      <Link href="/">Продавати на Розетці</Link>
                     </li>
                     <li>
-                      <a href="/">Співпраця з нами</a>
+                      <Link href="/">Співпраця з нами</Link>
                     </li>
                     <li>
-                      <a href="/">Франчайзинг</a>
+                      <Link href="/">Франчайзинг</Link>
                     </li>
                     <li>
-                      <a href="/">Оренда приміщень</a>
+                      <Link href="/">Оренда приміщень</Link>
                     </li>
                   </ul>
                 </CustomAccordion>

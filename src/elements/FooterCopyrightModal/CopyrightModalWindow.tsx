@@ -1,25 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React from 'react'
 
-type propCopyrightModalWindow = {
+type CopyrightModalWindowProps = {
   text: string
   content: string
   openCard: any
   setOpenCard: any
 }
 
-const CopyrightModalWindow = ({ text, content, openCard, setOpenCard }: propCopyrightModalWindow) => {
+const CopyrightModalWindow = ({ text, content, openCard, setOpenCard }: CopyrightModalWindowProps) => {
+  const handlerCloseCardWindow = () => {
+    setOpenCard(false)
+  }
+
+  const handlerStopPropagationCardWindow = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
+
+  const handlerCloseXCardWindow = () => {
+    setOpenCard(false)
+  }
+
   return (
     <>
       <div
         className={`modal_holder_cards animated_cards ${openCard ? 'show_cards' : ''} `}
-        onClick={() => setOpenCard(false)}
+        onClick={handlerCloseCardWindow}
       >
-        <div className="modal_window_cards" onClick={(e) => e.stopPropagation()}>
+        <div className="modal_window_cards" onClick={handlerStopPropagationCardWindow}>
           <div className="modal_header_cards">
             <div className="modal_heading_cards">{text}</div>
-            <button className="modal_close_cards" onClick={() => setOpenCard(false)}>
+            <button className="modal_close_cards" onClick={handlerCloseXCardWindow}>
               X
             </button>
           </div>

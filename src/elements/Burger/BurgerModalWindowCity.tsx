@@ -1,25 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/forbid-component-props */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import Link from 'next/link'
 import React from 'react'
 
 type ModalWindowCity = {
-  openWindowCity: any
+  openWindowCity: boolean
   setOpenWindowCity: any
 }
 
 const BurgerModalWindowCity = ({ openWindowCity, setOpenWindowCity }: ModalWindowCity) => {
+  const hendlerCloseCityWindow = () => {
+    setOpenWindowCity(false)
+  }
+
+  const hendlerStopPropagationCity = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
+
+  const hendlerCloseCityWindowAccept = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenWindowCity(false)
+  }
   return (
     <>
       <div
         className={`modal_city_holder animated_city ${openWindowCity ? 'show_city' : ''} `}
-        onClick={() => setOpenWindowCity(false)}
+        onClick={hendlerCloseCityWindow}
       >
-        <div className="modal_city_window" onClick={(e) => e.stopPropagation()}>
+        <div className="modal_city_window" onClick={hendlerStopPropagationCity}>
           <div className="modal_city_header">
             <div className="modal_city_heading">Виберіть своє місто</div>
-            <button className="modal_city_close" onClick={() => setOpenWindowCity(false)}>
+            <button className="modal_city_close" onClick={hendlerCloseCityWindow}>
               X
             </button>
           </div>
@@ -65,22 +76,10 @@ const BurgerModalWindowCity = ({ openWindowCity, setOpenWindowCity }: ModalWindo
             </form>
             <fieldset className="header_form_row">
               <div className="header_location_footer">
-                <Link
-                  className="button location_footer_button"
-                  href="/"
-                  onClick={() => {
-                    setOpenWindowCity(false)
-                  }}
-                >
+                <Link className="button location_footer_button" href="/" onClick={hendlerCloseCityWindow}>
                   Перейти на головну сторінку
                 </Link>
-                <button
-                  className="button location_footer_applybutton"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setOpenWindowCity(false)
-                  }}
-                >
+                <button className="button location_footer_applybutton" onClick={hendlerCloseCityWindowAccept}>
                   Застосувати
                 </button>
               </div>

@@ -22,7 +22,7 @@ const SocialsMain = ({ SocialsLinks, socialsClass }: SocialsLinksProps) => {
       <ul className="socials_list">
         {SocialsLinks.map(({ id, classSoc, socIcon, socPath }: SocialsLinksInfoProps) => (
           <li className="socials_list_item" key={id}>
-            <a className={`socials_link socials_${classSoc}`} href={socPath}>
+            <a className={`socials_link socials_${classSoc}`} href={socPath} rel="noreferrer" target="_blank">
               <i className={`fa-brands fa-${socIcon}`}></i>
             </a>
           </li>

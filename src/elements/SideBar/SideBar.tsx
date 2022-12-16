@@ -36,6 +36,10 @@ export const SideBar = ({ sidebarLinks }: sidebarLinks) => {
   const [openRemindePass, setOpenRemindePass] = useState(false)
   const [openRegestration, setOpenRegestration] = useState(false)
 
+  const handlerOpenMainWindow = () => {
+    setOpen(true)
+  }
+
   return (
     <>
       <ModalWindow
@@ -88,7 +92,7 @@ export const SideBar = ({ sidebarLinks }: sidebarLinks) => {
 
         {/* author */}
         <AuthorSidebar>
-          <button className={styles.btn_auth} onClick={() => setOpen(true)} type="button">
+          <button className={styles.btn_auth} onClick={handlerOpenMainWindow} type="button">
             Увійдіть в особистий кабінет
           </button>
         </AuthorSidebar>

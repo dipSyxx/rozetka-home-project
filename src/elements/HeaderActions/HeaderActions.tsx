@@ -13,6 +13,10 @@ export const HeaderActions = () => {
   const [openRemindePass, setOpenRemindePass] = useState(false)
   const [openRegestration, setOpenRegestration] = useState(false)
 
+  const handlerOpenMainWindow = () => {
+    setOpen(true)
+  }
+
   return (
     <>
       <ModalWindow
@@ -42,7 +46,7 @@ export const HeaderActions = () => {
         <div className={styles.header_actions_component}>
           <div className={styles.profile_inner}>
             <div className={styles.component_profile}>
-              <button className={styles.btn_user} onClick={() => setOpen(true)}>
+              <button className={styles.btn_user} onClick={handlerOpenMainWindow}>
                 <FontAwesomeIcon className={styles.icon_user} icon={faUser} />
               </button>
             </div>

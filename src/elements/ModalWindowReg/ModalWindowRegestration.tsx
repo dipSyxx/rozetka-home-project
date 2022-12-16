@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
@@ -9,7 +8,7 @@ import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
 import ButtonModalWindow from './ButtonModalWindow'
 
 type regestrationProp = {
-  openRegestration: any
+  openRegestration: boolean
   setOpenRegestration: any
   setOpen: any
 }
@@ -51,16 +50,34 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
     }
   }
 
+  const handlerCloseRegestrationWindow = () => {
+    setOpenRegestration(false)
+  }
+
+  const handlerStopPropagationWindow = (e: React.MouseEvent) => {
+    e.stopPropagation()
+  }
+
+  const handlerCloseXRegestrationWindow = () => {
+    setOpenRegestration(false)
+  }
+
+  const handlerAllreadyRegister = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setOpenRegestration(false)
+    setOpen(true)
+  }
+
   return (
     <>
       <div
         className={`modal_holder animated ${openRegestration ? 'show' : ''} `}
-        onClick={() => setOpenRegestration(false)}
+        onClick={handlerCloseRegestrationWindow}
       >
-        <div className="modal_window" onClick={(e) => e.stopPropagation()}>
+        <div className="modal_window" onClick={handlerStopPropagationWindow}>
           <div className="modal_header">
             <div className="modal_heading">Реєстрація</div>
-            <button className="modal_close" onClick={() => setOpenRegestration(false)}>
+            <button className="modal_close" onClick={handlerCloseXRegestrationWindow}>
               X
             </button>
           </div>
@@ -191,14 +208,7 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
 
                   <div className="form_row button_center">
                     <ButtonModalWindow entry="Зареєструватися" isValid={!isValid} />
-                    <button
-                      className="button button_link_modal"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setOpenRegestration(false)
-                        setOpen(true)
-                      }}
-                    >
+                    <button className="button button_link_modal" onClick={handlerAllreadyRegister}>
                       Я вже зареєстрований
                     </button>
                   </div>
