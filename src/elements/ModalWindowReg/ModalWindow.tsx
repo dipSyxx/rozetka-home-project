@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
+import { AuthModalSocials } from 'src/elements/AuthModalSocials/AuthModalSocials'
 
-import ButtonModalWindow from './ButtonModalWindow'
-import ModalWindowRegestration from './ModalWindowRegestration'
+import { ButtonModalWindow } from './ButtonModalWindow'
+import { ModalWindowRegestration } from './ModalWindowRegestration'
 import { ModalWindowRemindPass } from './ModalWindowRemindPass'
 
 interface IFormsValid {
@@ -16,11 +14,11 @@ interface IFormsValid {
 
 type OpenProps = {
   open: boolean
-  setOpen: any
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
   openRemindePass: boolean
-  setOpenRemindePass: any
+  setOpenRemindePass: React.Dispatch<React.SetStateAction<boolean>>
   openRegestration: boolean
-  setOpenRegestration: any
+  setOpenRegestration: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const ModalWindow = ({
@@ -54,7 +52,7 @@ export const ModalWindow = ({
     mode: 'onBlur',
   })
 
-  const onSubmit: SubmitHandler<IFormsValid> = (data: any) => {
+  const onSubmit: SubmitHandler<IFormsValid> = (data: IFormsValid) => {
     alert(JSON.stringify(data))
     reset()
   }
@@ -145,7 +143,7 @@ export const ModalWindow = ({
                   <div className="auth_modal_restore">
                     <input className="remember_checkbox" id="rememberMe" type="checkbox" />
                     <label className="auth_modal_remember_checkbox" htmlFor={'rememberMe'}>
-                      Запам'ятати мене
+                      Запам`ятати мене
                     </label>
 
                     <button className="auth_modal_link" onClick={handlerOpenRemindeWindow}>
@@ -171,6 +169,3 @@ export const ModalWindow = ({
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default ModalWindow

@@ -1,6 +1,6 @@
 import React from 'react'
-import MainSlider from 'src/elements/MainSlider/MainSlider'
-import SideBar from 'src/elements/SideBar/SideBar'
+import { MainSlider } from 'src/elements/MainSlider/MainSlider'
+import { SideBar } from 'src/elements/SideBar/SideBar'
 
 import { sidebarLinks } from './api/data/sidebarCategoiesMassive'
 import styles from './index.module.sass'

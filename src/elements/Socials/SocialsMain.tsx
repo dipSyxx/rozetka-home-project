@@ -1,10 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import {} from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 
+type MassiveSocialsLinksProps = {
+  id: number
+  classSoc: string
+  socIcon: string
+  socPath: string
+}
+
 type SocialsLinksProps = {
-  SocialsLinks: any
+  SocialsLinks: MassiveSocialsLinksProps[]
   socialsClass?: string
 }
 
@@ -15,7 +21,11 @@ type SocialsLinksInfoProps = {
   socPath: string
 }
 
-const SocialsMain = ({ SocialsLinks, socialsClass }: SocialsLinksProps) => {
+export const SocialsMain = ({ SocialsLinks, socialsClass }: SocialsLinksProps) => {
+  if (!SocialsLinks) {
+    return null
+  }
+
   return (
     <div className={`socials_sidebar_block ${socialsClass}`}>
       <div className="socials_sidebar_heading">Ми в соціальних мережах</div>
@@ -31,6 +41,3 @@ const SocialsMain = ({ SocialsLinks, socialsClass }: SocialsLinksProps) => {
     </div>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default SocialsMain

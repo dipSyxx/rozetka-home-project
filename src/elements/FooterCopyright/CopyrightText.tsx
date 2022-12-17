@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CopyrightText = () => {
+export const CopyrightText = () => {
   return (
     <>
       <p className="copyright_copyright_text">ТМ використовується на підставі ліцензії правовласника RozetkaLTD.</p>
@@ -9,6 +9,3 @@ const CopyrightText = () => {
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default CopyrightText

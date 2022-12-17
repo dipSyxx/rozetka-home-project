@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
+import { AuthModalSocials } from 'src/elements/AuthModalSocials/AuthModalSocials'
 
-import ButtonModalWindow from './ButtonModalWindow'
+import { ButtonModalWindow } from './ButtonModalWindow'
 
 type remindePassProp = {
   openRemindePass: boolean
-  setOpenRemindePass: any
-  setOpen: any
+  setOpenRemindePass: React.Dispatch<React.SetStateAction<boolean>>
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface IFormsValid {
@@ -26,7 +25,7 @@ export const ModalWindowRemindPass = ({ openRemindePass, setOpenRemindePass, set
     mode: 'onBlur',
   })
 
-  const onSubmit: SubmitHandler<IFormsValid> = (data: any) => {
+  const onSubmit: SubmitHandler<IFormsValid> = (data: IFormsValid) => {
     alert(JSON.stringify(data))
     reset()
   }

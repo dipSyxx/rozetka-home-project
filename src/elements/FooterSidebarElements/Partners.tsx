@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const Partners = () => {
+export const Partners = () => {
   return (
     <div className="footer_sidebar_links border_zero">
       <div className="footer_sidebar_heading">
@@ -24,6 +24,3 @@ const Partners = () => {
     </div>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default Partners

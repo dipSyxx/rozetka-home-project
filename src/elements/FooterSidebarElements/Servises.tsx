@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const Servises = () => {
+export const Servises = () => {
   return (
     <div className="footer_sidebar_links">
       <div className="footer_sidebar_heading">
@@ -27,6 +27,3 @@ const Servises = () => {
     </div>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default Servises

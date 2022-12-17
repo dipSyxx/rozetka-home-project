@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AuthModalSocials = () => {
+export const AuthModalSocials = () => {
   return (
     <div className="auth_modal_socials">
       <div className="auth_modal_socials_buttons">
@@ -15,6 +15,3 @@ const AuthModalSocials = () => {
     </div>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default AuthModalSocials

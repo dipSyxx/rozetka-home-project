@@ -1,10 +1,9 @@
-/* eslint-disable react/forbid-component-props */
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import ModalWindow from 'src/elements/ModalWindowReg/ModalWindow'
+import { ModalWindow } from 'src/elements/ModalWindowReg/ModalWindow'
 
 import styles from './HeaderActions.module.sass'
 
@@ -47,14 +46,14 @@ export const HeaderActions = () => {
           <div className={styles.profile_inner}>
             <div className={styles.component_profile}>
               <button className={styles.btn_user} onClick={handlerOpenMainWindow}>
-                <FontAwesomeIcon className={styles.icon_user} icon={faUser} />
+                <FontAwesomeIcon icon={faUser} />
               </button>
             </div>
 
             <div className={styles.component_cart}>
               <Link href="/shopCart/ShopCart">
                 <button className={styles.btn_cart}>
-                  <FontAwesomeIcon className={styles.icon_cart} icon={faCartShopping} />
+                  <FontAwesomeIcon icon={faCartShopping} />
                 </button>
               </Link>
             </div>
@@ -64,6 +63,3 @@ export const HeaderActions = () => {
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default HeaderActions

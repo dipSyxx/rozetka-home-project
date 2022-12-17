@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-component-props */
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -24,7 +23,6 @@ export const MainSlider = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        className="mySwiper"
         modules={[Navigation, Autoplay]}
         navigation={true}
         rewind={true}
@@ -48,6 +46,3 @@ export const MainSlider = () => {
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default MainSlider

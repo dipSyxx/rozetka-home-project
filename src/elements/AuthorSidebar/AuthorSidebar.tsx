@@ -7,7 +7,7 @@ type propAuth = {
   children: ReactNode
 }
 
-const AuthorSidebar = ({ children }: propAuth) => {
+export const AuthorSidebar = ({ children }: propAuth) => {
   return (
     <div className={styles.auth_wrapper}>
       <div className={styles.main_auth}>
@@ -18,6 +18,3 @@ const AuthorSidebar = ({ children }: propAuth) => {
     </div>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default AuthorSidebar

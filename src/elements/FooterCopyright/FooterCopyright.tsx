@@ -1,10 +1,10 @@
 import React from 'react'
 
-import CopyrightText from './CopyrightText'
-import PaymentMastercard from './PaymentMastercard'
-import PaymentVisa from './PaymentVisa'
+import { CopyrightText } from './CopyrightText'
+import { PaymentMastercard } from './PaymentMastercard'
+import { PaymentVisa } from './PaymentVisa'
 
-const FooterCopyright = () => {
+export const FooterCopyright = () => {
   return (
     <>
       <div className="copyright_block">
@@ -19,6 +19,3 @@ const FooterCopyright = () => {
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default FooterCopyright

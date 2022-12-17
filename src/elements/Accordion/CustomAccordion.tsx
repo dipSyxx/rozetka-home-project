@@ -5,7 +5,7 @@ type accordionProp = {
   children: ReactNode
 }
 
-const CustomAccordion = ({ accordionTitle, children }: accordionProp) => {
+export const CustomAccordion = ({ accordionTitle, children }: accordionProp) => {
   const [openAccordion, setOpenAccordion] = useState(false)
 
   const toggleHendler = () => {
@@ -26,6 +26,3 @@ const CustomAccordion = ({ accordionTitle, children }: accordionProp) => {
     </div>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default CustomAccordion

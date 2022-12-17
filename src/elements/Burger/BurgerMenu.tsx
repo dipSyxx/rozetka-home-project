@@ -1,33 +1,31 @@
-/* eslint-disable react/forbid-component-props */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { faCartShopping, faCircleQuestion, faPaperPlane, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import CustomAccordion from 'src/elements/Accordion/CustomAccordion'
-import ApplicationStore from 'src/elements/ApplicationStore/ApplicationStore'
-import AboutCompany from 'src/elements/FooterSidebarElements/AboutCompany'
-import Help from 'src/elements/FooterSidebarElements/Help'
-import SocialsMain from 'src/elements/Socials/SocialsMain'
+import { CustomAccordion } from 'src/elements/Accordion/CustomAccordion'
+import { ApplicationStore } from 'src/elements/ApplicationStore/ApplicationStore'
+import { AboutCompany } from 'src/elements/FooterSidebarElements/AboutCompany'
+import { Help } from 'src/elements/FooterSidebarElements/Help'
+import { SocialsMain } from 'src/elements/Socials/SocialsMain'
 
 import { SocialsLinks } from '../../pages/api/data/sidebarCategoiesMassive'
 
 type BurgerProp = {
   openBurgerMenu: boolean
-  setOpenBurgerMenu: any
+  setOpenBurgerMenu: React.Dispatch<React.SetStateAction<boolean>>
   open: boolean
-  setOpen: any
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
   openRemindePass: boolean
-  setOpenRemindePass: any
+  setOpenRemindePass: React.Dispatch<React.SetStateAction<boolean>>
   openRegestration: boolean
-  setOpenRegestration: any
+  setOpenRegestration: React.Dispatch<React.SetStateAction<boolean>>
   openWindowCity: boolean
-  setOpenWindowCity: any
+  setOpenWindowCity: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const BurgerMenu = ({
+export const BurgerMenu = ({
   openBurgerMenu,
   setOpenBurgerMenu,
   setOpen,
@@ -72,15 +70,8 @@ const BurgerMenu = ({
       >
         <div className="burger_window" onClick={hendlerStopPropagationMenu}>
           <div className="burger_menu_header">
-            <Link href="/">
-              <Image
-                alt="Rozetka"
-                className="burger_logo"
-                height={24}
-                placeholder="empty"
-                src="/Logo/logo.svg"
-                width={144}
-              />
+            <Link href="/" onClick={handlerCloseBurgerMenu}>
+              <Image alt="Rozetka" height={24} placeholder="empty" src="/Logo/logo.svg" width={144} />
             </Link>
             <button className="burger_close" onClick={handlerCloseXBurgerMenu}>
               X
@@ -91,7 +82,7 @@ const BurgerMenu = ({
             <div className="burger_menu_auth">
               <div className="burger_menu_auth_block">
                 <div className="burger_menu_avatar">
-                  <FontAwesomeIcon className="avatar" icon={faUser} />
+                  <FontAwesomeIcon icon={faUser} />
                 </div>
                 <div className="burger_menu_auth_content">
                   <div className="burger_menu_auth_buttons">
@@ -121,14 +112,16 @@ const BurgerMenu = ({
                 </button>
               </li>
               <li className="burger_menu_item">
-                <a className="burger_menu_button">
-                  <span className="burger_menu_icon_button">
-                    <FontAwesomeIcon icon={faCircleQuestion} />
-                  </span>
-                  Довідковий центр
-                </a>
+                <Link href="/">
+                  <button className="burger_menu_button">
+                    <span className="burger_menu_icon_button">
+                      <FontAwesomeIcon icon={faCircleQuestion} />
+                    </span>
+                    Довідковий центр
+                  </button>
+                </Link>
 
-                <a className="burger_menu_button chat_button">
+                <a className="burger_menu_button chat_button" href="https://t.me/Rozetka_helpBot?start=src=hc">
                   <span className="burger_menu_icon_button">
                     <FontAwesomeIcon icon={faPaperPlane} />
                   </span>
@@ -136,11 +129,13 @@ const BurgerMenu = ({
                 </a>
               </li>
               <li className="burger_menu_item border_zero">
-                <Link className="burger_menu_button" href="/shopCart/ShopCart" onClick={handlerCloseBurgerMenu}>
-                  <span className="burger_menu_icon_button">
-                    <FontAwesomeIcon icon={faCartShopping} />
-                  </span>
-                  Кошик
+                <Link href="/shopCart/ShopCart" onClick={handlerCloseBurgerMenu}>
+                  <button className="burger_menu_button">
+                    <span className="burger_menu_icon_button">
+                      <FontAwesomeIcon icon={faCartShopping} />
+                    </span>
+                    Кошик
+                  </button>
                 </Link>
               </li>
             </ul>
@@ -150,14 +145,12 @@ const BurgerMenu = ({
                   <p className="burger_menu_switch_label">Мова</p>
                   <div className="burger_lang_block">
                     <ul className="burger_lang_list">
-                      <li className="burger_lang_item">
-                        <Link className="lang_link" href="/">
-                          RU
-                        </Link>
+                      <li className="burger_lang_item lang_link">
+                        <Link href="/">RU</Link>
                       </li>
-                      <li className="burger_lang_item lang_space">
-                        <Link className="lang_link lang_link_active" href="/">
-                          <Image alt="ua" className="lang_icon" height={16} src="/Lang/ua.svg" width={24} />
+                      <li className="burger_lang_item lang_space lang_link lang_link_active">
+                        <Link href="/">
+                          <Image alt="ua" height={16} src="/Lang/ua.svg" width={24} />
                           UA
                         </Link>
                       </li>
@@ -222,6 +215,3 @@ const BurgerMenu = ({
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default BurgerMenu

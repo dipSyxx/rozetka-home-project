@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
-import CopyrightModalWindow from 'src/elements/FooterCopyrightModal/CopyrightModalWindow'
+import { CopyrightModalWindow } from 'src/elements/FooterCopyrightModal/CopyrightModalWindow'
 
-const PaymentMastercard = () => {
+export const PaymentMastercard = () => {
   const [openCard, setOpenCard] = useState(false)
 
   const handlerOpenCard = () => {
@@ -24,6 +24,3 @@ const PaymentMastercard = () => {
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default PaymentMastercard

@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
 type CopyrightModalWindowProps = {
   text: string
   content: string
-  openCard: any
-  setOpenCard: any
+  openCard: boolean
+  setOpenCard: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const CopyrightModalWindow = ({ text, content, openCard, setOpenCard }: CopyrightModalWindowProps) => {
+export const CopyrightModalWindow = ({ text, content, openCard, setOpenCard }: CopyrightModalWindowProps) => {
   const handlerCloseCardWindow = () => {
     setOpenCard(false)
   }
@@ -42,6 +41,3 @@ const CopyrightModalWindow = ({ text, content, openCard, setOpenCard }: Copyrigh
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default CopyrightModalWindow

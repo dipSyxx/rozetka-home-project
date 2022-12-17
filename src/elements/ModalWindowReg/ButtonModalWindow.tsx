@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
 type entryProp = {
@@ -6,7 +5,7 @@ type entryProp = {
   isValid: boolean
 }
 
-const ButtonModalWindow = ({ entry, isValid }: entryProp) => {
+export const ButtonModalWindow = ({ entry, isValid }: entryProp) => {
   return (
     <>
       <button className="button button_auth_modal" disabled={isValid} type="submit">
@@ -15,6 +14,3 @@ const ButtonModalWindow = ({ entry, isValid }: entryProp) => {
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default ButtonModalWindow

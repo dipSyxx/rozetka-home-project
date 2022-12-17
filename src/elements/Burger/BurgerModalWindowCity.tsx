@@ -1,14 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/forbid-component-props */
 import Link from 'next/link'
 import React from 'react'
 
 type ModalWindowCity = {
   openWindowCity: boolean
-  setOpenWindowCity: any
+  setOpenWindowCity: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const BurgerModalWindowCity = ({ openWindowCity, setOpenWindowCity }: ModalWindowCity) => {
+export const BurgerModalWindowCity = ({ openWindowCity, setOpenWindowCity }: ModalWindowCity) => {
   const hendlerCloseCityWindow = () => {
     setOpenWindowCity(false)
   }
@@ -76,7 +74,7 @@ const BurgerModalWindowCity = ({ openWindowCity, setOpenWindowCity }: ModalWindo
             </form>
             <fieldset className="header_form_row">
               <div className="header_location_footer">
-                <Link className="button location_footer_button" href="/" onClick={hendlerCloseCityWindow}>
+                <Link href="/" onClick={hendlerCloseCityWindow}>
                   Перейти на головну сторінку
                 </Link>
                 <button className="button location_footer_applybutton" onClick={hendlerCloseCityWindowAccept}>
@@ -94,6 +92,3 @@ const BurgerModalWindowCity = ({ openWindowCity, setOpenWindowCity }: ModalWindo
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default BurgerModalWindowCity

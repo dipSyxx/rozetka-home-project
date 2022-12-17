@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
-import ModalWindow from 'src/elements/ModalWindowReg/ModalWindow'
+import { ModalWindow } from 'src/elements/ModalWindowReg/ModalWindow'
 
 import styles from './Burger.module.sass'
-import BurgerMenu from './BurgerMenu'
-import BurgerModalWindowCity from './BurgerModalWindowCity'
+import { BurgerMenu } from './BurgerMenu'
+import { BurgerModalWindowCity } from './BurgerModalWindowCity'
 
 export const Burger = () => {
   const [open, setOpen] = useState(false)
@@ -47,6 +47,3 @@ export const Burger = () => {
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default Burger

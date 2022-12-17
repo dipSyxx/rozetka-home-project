@@ -1,16 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import AuthModalSocials from 'src/elements/AuthModalSocials/AuthModalSocials'
+import { AuthModalSocials } from 'src/elements/AuthModalSocials/AuthModalSocials'
 
-import ButtonModalWindow from './ButtonModalWindow'
+import { ButtonModalWindow } from './ButtonModalWindow'
 
 type regestrationProp = {
   openRegestration: boolean
-  setOpenRegestration: any
-  setOpen: any
+  setOpenRegestration: React.Dispatch<React.SetStateAction<boolean>>
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface IFormsValid {
@@ -21,7 +19,7 @@ interface IFormsValid {
   password: string
 }
 
-const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpen }: regestrationProp) => {
+export const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpen }: regestrationProp) => {
   const {
     register,
     formState: { errors, isValid },
@@ -31,7 +29,7 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
     mode: 'onBlur',
   })
 
-  const onSubmit: SubmitHandler<IFormsValid> = (data: any) => {
+  const onSubmit: SubmitHandler<IFormsValid> = (data: IFormsValid) => {
     alert(JSON.stringify(data))
     reset()
   }
@@ -86,7 +84,7 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
               <form className="auth_modal_form" onSubmit={handleSubmit(onSubmit)}>
                 <fieldset className="reset_fieldset">
                   <div className="form_row">
-                    <label className="form_label">Ім'я</label>
+                    <label className="form_label">Ім`я</label>
                     <input
                       {...register('firstname', {
                         required: "Введіть своє ім'я кирилицею",
@@ -224,6 +222,3 @@ const ModalWindowRegestration = ({ openRegestration, setOpenRegestration, setOpe
     </>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default ModalWindowRegestration

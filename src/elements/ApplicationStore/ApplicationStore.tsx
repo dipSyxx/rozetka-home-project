@@ -7,7 +7,7 @@ type appStoreProp = {
   appClass?: string
 }
 
-const ApplicationStore = ({ appClass }: appStoreProp) => {
+export const ApplicationStore = ({ appClass }: appStoreProp) => {
   return (
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     <div className={`apps_store ${appClass}`}>
@@ -46,6 +46,3 @@ const ApplicationStore = ({ appClass }: appStoreProp) => {
     </div>
   )
 }
-
-// eslint-disable-next-line import/no-default-export
-export default ApplicationStore
