@@ -72,16 +72,14 @@ export const BurgerModalWindowCity = ({ openWindowCity, setOpenWindowCity }: Mod
                 <button className="button header_location_example_link">Котюжини</button>
               </p>
             </form>
-            <fieldset className="header_form_row">
-              <div className="header_location_footer">
-                <Link href="/" onClick={hendlerCloseCityWindow}>
-                  Перейти на головну сторінку
-                </Link>
-                <button className="button location_footer_applybutton" onClick={hendlerCloseCityWindowAccept}>
-                  Застосувати
-                </button>
-              </div>
-            </fieldset>
+            <div className="header_location_footer">
+              <Link href="/" onClick={hendlerCloseCityWindow}>
+                Перейти на головну сторінку
+              </Link>
+              <button className="button location_footer_applybutton" onClick={hendlerCloseCityWindowAccept}>
+                Застосувати
+              </button>
+            </div>
             <p className="header_location_caption">
               Вибір міста допоможе надати актуальну інформацію про наявність товару, його ціни та методів доставки у
               вашому місті! Це допоможе зберегти більше вільного часу для вас!
