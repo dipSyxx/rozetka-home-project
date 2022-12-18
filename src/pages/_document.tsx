@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-sync-scripts */
-/* eslint-disable @next/next/no-title-in-document-head */
 import { Head, Html, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
     <Html>
       <Head>
-        <title>RozetkaUA-home-project</title>
         <script crossOrigin="anonymous" src="https://kit.fontawesome.com/699e6f5ea8.js"></script>
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link crossOrigin href="https://fonts.gstatic.com" rel="preconnect" />
